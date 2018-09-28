@@ -14,6 +14,6 @@ jobs:
       - attach_workspace:
         at: /tmp/workspace
       - checkout
-      - cp apkpure_app_887.apk /tmp/test.apk
+      - run: cp apkpure_app_887.apk /tmp/test.apk
       - sectest/sectest:
         auto_file: test.apk
