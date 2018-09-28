@@ -1,0 +1,7 @@
+version: 2.1
+orbs:
+  sectest: bhatti/sectest@dev
+workflows:
+  test:
+    jobs:
+      - sectest/sectest
