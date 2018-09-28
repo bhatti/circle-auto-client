@@ -13,7 +13,7 @@ jobs:
       - run: cp apkpure_app_887.apk /tmp/workspace/test.apk
       - run: env > /tmp/workspace/nowsecure-auto-security-test/env.out
       - run: find /tmp/workspace > /tmp/workspace/nowsecure-auto-security-test/find.out
-      - run: find
+      - run: find /tmp/workspace
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
