@@ -6,13 +6,13 @@ jobs:
     environment:
       TERM: dumb
     steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - checkout
+      - curl -o /tmp/test.apk https://apkpure.com/ejderha-yuvas%C4%B1-dragon-nest-t%C3%BCrkiye/com.memobilegame.ggplay.dnmtr/download
+      - run: env > /tmp/workspace/nowsecure-auto-security-test/env.out
+      - run: find /tmp/workspace > /tmp/workspace/nowsecure-auto-security-test/find.out
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
             - nowsecure-auto-security-test/*
-      - attach_workspace:
-        at: /tmp/workspace
-      - checkout
-      - curl -o /tmp/test.apk https://apkpure.com/ejderha-yuvas%C4%B1-dragon-nest-t%C3%BCrkiye/com.memobilegame.ggplay.dnmtr/download
-      - run: env
-      - run: find /tmp/workspace
