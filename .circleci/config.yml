@@ -1,7 +1,19 @@
 version: 2.1
 orbs:
   sectest: bhatti/sectest@dev
-workflows:
-  test:
-    jobs:
-      - sectest/sectest
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - nowsecure-auto-security-test/*
+      - attach_workspace:
+        at: /tmp/workspace
+      - checkout
+      - curl -o /tmp/test.apk https://apkpure.com/ejderha-yuvas%C4%B1-dragon-nest-t%C3%BCrkiye/com.memobilegame.ggplay.dnmtr/download
+      - sectest/sectest:
+        auto_file: test.apk
