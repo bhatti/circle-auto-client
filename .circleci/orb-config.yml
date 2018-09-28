@@ -14,6 +14,6 @@ jobs:
       - attach_workspace:
         at: /tmp/workspace
       - checkout
-      - curl -o /tmp/test.apk https://apkpure.com/ejderha-yuvas%C4%B1-dragon-nest-t%C3%BCrkiye/com.memobilegame.ggplay.dnmtr/download
+      - cp apkpure_app_887.apk /tmp/test.apk
       - sectest/sectest:
         auto_file: test.apk
