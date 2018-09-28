@@ -1,10 +1,11 @@
-version: 2
+version: 2.1
+orbs:
+  sectest: bhatti/sectest@dev
 jobs:
   build:
     docker:
+      # specify the version you desire here
       - image: circleci/openjdk:8-jdk
-    environment:
-      TERM: dumb
     steps:
       - persist_to_workspace:
           root: /tmp/workspace
@@ -14,5 +15,5 @@ jobs:
         at: /tmp/workspace
       - checkout
       - curl -o /tmp/test.apk https://apkpure.com/ejderha-yuvas%C4%B1-dragon-nest-t%C3%BCrkiye/com.memobilegame.ggplay.dnmtr/download
-      - run: env
-      - run: find /tmp/workspace
+      - sectest/sectest:
+        auto_file: test.apk
