@@ -9,7 +9,8 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - checkout
-      - run: cp apkpure_app_887.apk /tmp/test.apk
+      - run: mkdir -p /tmp/workspace/nowsecure-auto-security-test
+      - run: cp apkpure_app_887.apk /tmp/workspace/test.apk
       - run: env > /tmp/workspace/nowsecure-auto-security-test/env.out
       - run: find /tmp/workspace > /tmp/workspace/nowsecure-auto-security-test/find.out
       - persist_to_workspace:
