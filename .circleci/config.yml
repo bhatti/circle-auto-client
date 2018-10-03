@@ -11,7 +11,7 @@ jobs:
     - checkout
     - run: find .
     - run: cp apkpure_app_887.apk /tmp/workspace2/test.apk
-    - sectest/ci-auto-orb:
+    - sectest/sectest:
         auto_file: /tmp/workspace2/test.apk
         auto_wait: "30"
         auto_score: "50"
