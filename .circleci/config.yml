@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  sectest: ci-auto-test1/ci-auto-orb1@dev:alpha2
+  sectest: ci-auto-test1/ci-auto-orb1@dev:alpha3
 jobs:
   build:
     docker:
@@ -9,8 +9,9 @@ jobs:
     - attach_workspace:
         at: /tmp/workspace2
     - checkout
+    - run: find .
     - run: cp apkpure_app_887.apk /tmp/workspace2/test.apk
-    - sectest/sectest:
+    - sectest/ci-auto-orb:
         auto_file: /tmp/workspace2/test.apk
         auto_wait: "30"
         auto_score: "50"
