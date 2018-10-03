@@ -1,22 +1,16 @@
 version: 2.1
 orbs:
-  sectest: bhatti/sectest@dev
+  sectest: ci-auto-test1/ci-auto-orb1@dev:alpha
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
+    - image: circleci/openjdk:8-jdk
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - checkout
-      - run: mkdir -p /tmp/workspace/nowsecure-auto-security-test
-      - run: cp apkpure_app_887.apk /tmp/workspace/test.apk
-      - sectest/sectest:
-        auto_file: test.apk
-        auto_wait: 30
-        auto_score: 50
-      - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - nowsecure-auto-security-test/*
+    - attach_workspace:
+        at: /tmp/workspace2
+    - checkout
+    - run: cp apkpure_app_887.apk /tmp/workspace2/test.apk
+    - sectest/sectest:
+        auto_file: /tmp/workspace2/test.apk
+        auto_wait: "30"
+        auto_score: "50"
