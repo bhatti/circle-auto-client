@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  sectest: ci-auto-test1/ci-auto-orb1@dev:alpha10
+  sectest: ci-auto-test1/ci-auto-orb1@dev:alpha11
 jobs:
   build:
     docker:
