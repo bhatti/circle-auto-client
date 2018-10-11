@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  auto_test: ci-auto-test1/ci-auto-orb1@dev:alpha12
+  auto_test: ci-auto-test1/ci-auto-orb1@dev:alpha14
 jobs:
   build:
     docker:
