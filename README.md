@@ -1,6 +1,7 @@
 # circle-auto-client
+Using version 1.0.7
 
-Validate
+## Validate
 ```
 circleci config validate
 ```
