@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  auto_test: nowsecure/ci-auto-orb@dev:alpha5
+  auto_test: nowsecure/ci-auto-orb@dev:alpha1
 jobs:
   build:
     docker:
